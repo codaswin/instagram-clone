@@ -5,6 +5,7 @@ import {
   SkeletonCircle,
   VStack,
   Box,
+  Text,
 } from "@chakra-ui/react";
 import FeedPost from "./FeedPost";
 import useGetFeedPosts from "../../hooks/useGetFeedPosts";
@@ -32,6 +33,17 @@ const FeedPosts = () => {
       {!isLoading &&
         posts.length > 0 &&
         posts.map((post) => <FeedPost key={post.id} post={post} />)}
+      {!isLoading && posts.length === 0 && (
+        <>
+          <Text fontSize={"lg"} color={"whiteAlpha.600"}>
+            Hey welcome to the insta clone 😊 !!
+          </Text>
+          <Text fontSize={"md"} color={"blue.600"}>
+            {" "}
+            Make some friends Looks like you have none 👀{" "}
+          </Text>
+        </>
+      )}
     </Container>
   );
 };
